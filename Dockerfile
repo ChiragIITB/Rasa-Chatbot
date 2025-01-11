@@ -1,17 +1,16 @@
-# Use the official Rasa image as the base
 FROM rasa/rasa:latest
 
-# Set the working directory
 WORKDIR /app
 
-# Copy your project files into the container
+# Copy your bot's files into the container
 COPY . /app
 
-# Install dependencies (if you have custom ones)
-RUN pip install -r requirements.txt
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the Rasa default port
+# Expose port for Rasa
 EXPOSE 5005
 
 # Run the Rasa server
-CMD ["rasa", "run", "--enable-api", "--cors", "*"]
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "5005"]
+
