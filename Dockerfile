@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies (if you have custom ones)
-RUN pip install -r requirements.txt
+RUN pip install --user -r requirements.txt
 
 # Expose the Rasa default port
 EXPOSE 5005
