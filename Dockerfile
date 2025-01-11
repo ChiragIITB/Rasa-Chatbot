@@ -6,7 +6,10 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Expose port for Rasa
 EXPOSE 5005
