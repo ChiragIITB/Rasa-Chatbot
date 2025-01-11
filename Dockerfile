@@ -6,6 +6,7 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies
+USER root
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --no-cache-dir -r requirements.txt
